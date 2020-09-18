@@ -625,6 +625,10 @@ x_{ij}= \mu + \tau_i + \epsilon_{ij}
 <li><p><strong>Homocedasticidade (homogeneidade de variâncias)</strong>: Os erros (desvios) <span class="math inline">\(\epsilon_{ij}\)</span>, devido ao acaso devem possuir variância comum <span class="math inline">\(\sigma^2\)</span></p></li>
 <li><p><strong>Normalidade dos desvios</strong>: Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devido ao acaso devem possuir distribuição normal de probabilidades.</p></li>
 </ol>
+<p>Uma forma resumida de apresentar estas quatro pressuposições é apresentada a seguir:</p>
+<p><span class="math display">\[
+\epsilon_{ij} \overset{iid}{\tilde{}} N(0,\sigma^2) \\
+\]</span></p>
 <p>Quando as hipóteses básicas não são satisfeitas, como no caso mais frequente a homocedasticidade, deve-se utilizar uma transformação dos dados para contormar o problema.</p>
 <p><strong>1. Raiz Quadrada:</strong> <span class="math inline">\(y=\sqrt{x}\)</span></p>
 <p>Geralmente utilizada para dados de contagem, que frequentemente seguem a distribuição de Poisson, em que a média e a variância são iguais. Exemplo, número de ácaros por folha, número de frutos atacados, número de plantas doentes por parcela, etc. No caso de ocorrência de valores nulos ou baixos, recomenda-se <span class="math inline">\(y=\sqrt{x+0,5}\)</span> ou <span class="math inline">\(y=\sqrt{x+1}\)</span>.</p>
