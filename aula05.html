@@ -971,7 +971,7 @@ SQ_{Res} = 2509,46 - 2135,94 = 373,52
 </tr>
 </tbody>
 </table>
-<p>Valores de F da tabela para (4 x 20 GL):<span class="math inline">\(\begin{cases} 5\%=2.87 \\ 1\%=4.43 \end{cases}\)</span></p>
+<p>Valores de F da tabela para (4 x 20 GL):<span class="math inline">\(\begin{cases} 5\%=2,87 \\ 1\%=4,43 \end{cases}\)</span></p>
 <p><strong>Conclusão</strong>: O teste F foi significativo ao nível de 1% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as variedades diferem entre si em relação à produção de mandioca, com um grau de confiança de <span class="math inline">\(99\%\)</span> de probabilidade.</p>
 <p>Conclusões específicas sobre o comportamento das variedades, devemos utilizar um teste de compração de médias.</p>
 <p><strong>a) Cálculo das médias de cada tratamento e erros padrões das médias</strong>:</p>
@@ -992,7 +992,7 @@ s(\hat{m_1}) = s(\hat{m_2})=s(\hat{m_3})=s(\hat{m_4})=s(\hat{m_5})= \sqrt{\frac{
 q_{(5\;Trat \times 20 gl\;Resíduo)}(5\%) = 4.23
 \]</span> Então, temos:</p>
 <p><span class="math display">\[
-\Delta = q \cdot \sqrt{\frac{QM_{Res}}{J}} = 4.23 \cdot1.93 = 8,2\;t/ha
+\Delta = q \cdot \sqrt{\frac{QM_{Res}}{J}} = 4,23 \cdot 1,93 = 8,2\;t/ha
 \]</span></p>
 <p><strong>b.2) Organizar a médias em ordem decrescente</strong>:</p>
 <p><span class="math display">\[
@@ -1136,7 +1136,7 @@ dic(trat,prod,mcomp = &quot;tukey&quot;)</code></pre>
 <pre><code>+ morte das plantas responsáveis pela parcela;
 + falha do experimentador na coleta dos dados (erro de anotação);
 + perda da ficha onde estão anotados os dados da parcela;
-+ aparcela apresenta um valor muito discrepante dos demais e não é considerada para efeito de análise;
++ a parcela apresenta um valor muito discrepante dos demais e não é considerada para efeito de análise;
 + impossibilidade de acesso à parcela, ou ao bloco devido à condições meteorológicas;
 + falha no equipamento (muito comum na utilização de sensores).</code></pre>
 </div>
@@ -1339,8 +1339,8 @@ H_1: As\;cultivares\; diferem\; entre\; si\; quanto\; à\; produção\; de\; mat
 <p><span class="math display">\[
 SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - C \\
 SQ_{Total} = \sum_{i=1}^I\sum_{j=i}^Jx_{ij}^2 - \frac{G^2}{N} \\
-SQ_{Total} = (10.27^2+11.55^2+...+20.92^2) - \frac{400.49^2}{27}\\
-SQ_{Total} = 710.1902
+SQ_{Total} = (10,27^2+11,55^2+...+20,92^2) - \frac{400,49^2}{27}\\
+SQ_{Total} = 710,1902
 \]</span></p>
 <p><strong>a.2) Cálculo da Soma de Quadrados de Tratamentos</strong>:</p>
 <p>Como os tratamento não são igualmente repetidos, devemos calcular a <span class="math inline">\(SQ_{trat}\)</span> por:</p>
@@ -1350,14 +1350,14 @@ onde,\; N=\sum_{i=1}^Ir_i\\
 \]</span></p>
 <p>Assim, no nosso exemplo, temos:</p>
 <p><span class="math display">\[
-SQ_{Trat} =\left[ {\frac{62.32^2}{6}+\frac{62.77^2}{6}+\frac{39.87^2}{4}+\frac{105.06^2}{5}+\frac{125.47^2}{6}} \right] - \frac{400.49^2}{27}\\ 
-SQ_{Trat}= 700.2677
+SQ_{Trat} =\left[ {\frac{62,32^2}{6}+\frac{62,77^2}{6}+\frac{39,87^2}{4}+\frac{105,06^2}{5}+\frac{125,47^2}{6}} \right] - \frac{400,49^2}{27}\\ 
+SQ_{Trat}= 700,2677
 \]</span></p>
 <p><strong>a.2) Cálculo da Soma de Quadrados do Resíduo</strong>:</p>
 <p><span class="math display">\[
 SQ_{Res} = SQ_{Total} - SQ_{Trat} \\
-SQ_{Res} = 710.1902 - 700.2677 \\
-SQ_{Res} = 9.9225
+SQ_{Res} = 710,1902 - 700,2677 \\
+SQ_{Res} = 9,9225
 \]</span></p>
 <p>Então, podemos montar o seguinte quadro de análise de variância:</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1389,13 +1389,13 @@ Tratamento
 4
 </td>
 <td style="text-align:left;">
-700.2677
+700,2677
 </td>
 <td style="text-align:left;">
-175.0669
+175,0669
 </td>
 <td style="text-align:left;">
-388.17**
+388,17**
 </td>
 </tr>
 <tr>
@@ -1406,10 +1406,10 @@ Resíduo
 22
 </td>
 <td style="text-align:left;">
-9.9225
+9,9225
 </td>
 <td style="text-align:left;">
-0.4510
+0,4510
 </td>
 <td style="text-align:left;">
 –
@@ -1423,7 +1423,7 @@ Total
 26
 </td>
 <td style="text-align:left;">
-710.1902
+710,1902
 </td>
 <td style="text-align:left;">
 –
@@ -1434,7 +1434,7 @@ Total
 </tr>
 </tbody>
 </table>
-<p>Valores de F da tabela para (4 x 22 GL):<span class="math inline">\(\begin{cases} 5\%=2.82 \\ 1\%=4.31 \end{cases}\)</span></p>
+<p>Valores de F da tabela para (4 x 22 GL):<span class="math inline">\(\begin{cases} 5\%=2,82 \\ 1\%=4,31 \end{cases}\)</span></p>
 <p><strong>Conclusão</strong>: O teste F foi significativo ao nível de 1% de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as cultivares de sorgo possuem efeitos diferentes sobre a produção de matéria seca, com um grau de confiança de <span class="math inline">\(99\%\)</span> de probabilidade.</p>
 <p>Para tirar conclusões mais específicas sobre o comportamento das cultivares, devemos utilizar um teste de compração de médias.</p>
 </div>
@@ -1446,21 +1446,21 @@ Total
 \]</span></p>
 <p>e seu erro padrão, por:</p>
 <p><span class="math display">\[
-s(\hat{m_i})=\frac{s}{\sqrt{r_i}}.
+s(\hat{m_i})=\frac{s}{\sqrt{r_i}} = \sqrt{\frac{QM_{Resíduo}}{r_i}}.
 \]</span></p>
 <p>Então, no nosso exemplo, temos:</p>
 <p><span class="math display">\[
-\hat{m_1} = \frac{T_1}{r_1}=\frac{67.32}{6}=11.22\;t/ha\\
-\hat{m_2} = \frac{T_2}{r_2}=\frac{62.77}{6}=10.46\;t/ha\\
-\hat{m_3} = \frac{T_3}{r_3}=\frac{39.87}{4}=9.97\;t/ha\\
-\hat{m_4} = \frac{T_4}{r_4}=\frac{105.06}{5}=21.01\;t/ha\\
-\hat{m_5} = \frac{T_5}{r_5}=\frac{125.47}{6}=20.91\;t/ha\\
+\hat{m_1} = \frac{T_1}{r_1}=\frac{67,32}{6}=11,22\;t/ha\\
+\hat{m_2} = \frac{T_2}{r_2}=\frac{62,77}{6}=10,46\;t/ha\\
+\hat{m_3} = \frac{T_3}{r_3}=\frac{39,87}{4}=9,97\;t/ha\\
+\hat{m_4} = \frac{T_4}{r_4}=\frac{105,06}{5}=21,01\;t/ha\\
+\hat{m_5} = \frac{T_5}{r_5}=\frac{125,47}{6}=20,91\;t/ha\\
 \]</span></p>
 <p>E os erros padrões dessas médias serão:</p>
 <p><span class="math display">\[
-s(\hat{m_1})=s(\hat{m_2})=s(\hat{m_5})=\sqrt{\frac{0.4510}{6}} = 0.27\;t/ha.\\
-s(\hat{m_3})=\sqrt{\frac{0.4510}{4}} = 0.34\;t/ha.\\
-s(\hat{m_4})=\sqrt{\frac{0.4510}{5}} = 0.30\;t/ha.
+s(\hat{m_1})=s(\hat{m_2})=s(\hat{m_5})=\sqrt{\frac{0,4510}{6}} = 0,27\;t/ha.\\
+s(\hat{m_3})=\sqrt{\frac{0,4510}{4}} = 0,34\;t/ha.\\
+s(\hat{m_4})=\sqrt{\frac{0,4510}{5}} = 0,30\;t/ha.
 \]</span></p>
 </div>
 <div id="teste-de-tukey-para-comparação-das-médias" class="section level2">
@@ -1477,8 +1477,8 @@ s(\hat{m_4})=\sqrt{\frac{0.4510}{5}} = 0.30\;t/ha.
 <p><strong>a. Comparação entre médias com 6 repetições entre si:</strong></p>
 <p>Neste caso, como as médias são igualmente repetidas, a dms é dada por:</p>
 <p><span class="math display">\[
-q_{(5\times 22\;GLres)} = 4.20,\;então \\
-\Delta=q\cdot\sqrt{\frac{0.4510}{6}}=1.13\;t/ha
+q_{(5\times 22\;GLres)} = 4,20,\;então \\
+\Delta=q\cdot\sqrt{\frac{0,4510}{6}}=1,13\;t/ha
 \]</span></p>
 <p>Os contrastes que envolvem comparações são:</p>
 <p><span class="math display">\[
@@ -1682,7 +1682,7 @@ a
 s = \sqrt{QM_{Res}}=\sqrt{0,4510}=0,6716\;t/ha\\
 \]</span></p>
 <p>Portanto: <span class="math display">\[
-CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{0,6716}{14,83}=4.53\%
+CV=100\cdot \frac{s}{\hat{m}} = 100\cdot \frac{0,6716}{14,83}=4,53\%
 \]</span></p>
 <p>Utilizando o R para obtermos o quadro da análise de variância, os dados estão disponíveis online em: <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/sorgo.txt">sorgo</a>.</p>
 <p><img src="data:image/png;base64,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" /></p>
@@ -1755,23 +1755,23 @@ H_1: \frac{m_1+m_2+m_3+m_4}{4} \neq m_5 \end{cases}
 \]</span></p>
 <p>A estimativa do contraste será: <span class="math display">\[
 \hat{Y} = \hat{m_1}+\hat{m_2}+\hat{m_3}+\hat{m_4}-4\hat{m_5} \\
-\hat{Y} = 11.22+10.46+9.97+21.01-4\cdot20.91 \\
-\hat{Y} = -30.98
+\hat{Y} = 11,22+10,46+9,97+21,01-4\cdot20,91 \\
+\hat{Y} = -30,98
 \]</span></p>
 <p>A estimativa da variância do contraste será:</p>
 <p><span class="math display">\[
 \hat{V}(\hat{Y}) = \left(\frac{c_1^2}{r_1}+\frac{c_2^2}{r_2}+...+\frac{c_I^2}{r_I} \right)s^2 \\
-\hat{V}(\hat{Y}) = \left(\frac{1^2}{6}+\frac{1^2}{6}+\frac{1^2}{4}+\frac{1^2}{5}+\frac{(-4)^2}{6} \right)0.4510^2 \\
-\hat{V}(\hat{Y}) = 1.5560
+\hat{V}(\hat{Y}) = \left(\frac{1^2}{6}+\frac{1^2}{6}+\frac{1^2}{4}+\frac{1^2}{5}+\frac{(-4)^2}{6} \right)0,4510^2 \\
+\hat{V}(\hat{Y}) = 1,5560
 \]</span></p>
 <p>Assim, o erro padrão do contraste será:</p>
 <p><span class="math display">\[
-s(\hat{Y})=\sqrt{\hat{V}(\hat{Y})} = \sqrt{1.5560}=1.25
+s(\hat{Y})=\sqrt{\hat{V}(\hat{Y})} = \sqrt{1,5560}=1,25
 \]</span></p>
 <p>e o valor da estatística do teste t será:</p>
 <p><span class="math display">\[
-t_{obs} = \frac{\hat{Y}}{s(\hat{Y})}=\frac{-30.98}{1.25}=-24.78^{**} \\
-t_{tab (22 GLres)} \begin{cases}5\%=2.07\\1\%=2.82 \end{cases}
+t_{obs} = \frac{\hat{Y}}{s(\hat{Y})}=\frac{-30,98}{1.25}=-24,78^{**} \\
+t_{tab (22 GLres)} \begin{cases}5\%=2,07\\1\%=2,82 \end{cases}
 \]</span></p>
 <p><strong>Conclusão</strong>: Como <span class="math inline">\(t_{obs} &gt; t_{tab}\)</span>, rejeitamos <span class="math inline">\(H_0\)</span> e concluímos que a média do grupo de híbridos diferem da média da variedade SART, sendo que, em médias, a variedade possui maior produção de matéria seca que os híbridos.</p>
 <pre class="r"><code>require(agricolae)</code></pre>
@@ -1855,7 +1855,7 @@ D_5 = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y})}= 3,24\sqrt{\frac{1}{2}\cdot0,2
 <p><span class="math display">\[
 \begin{cases} \hat{Y_2}=\hat{m_4}-\hat{m_2} = 21,01-10,46 = 10,55\;t/ha \\
 \hat{Y_3}=\hat{m_5}-\hat{m_3} = 20,91-9,97 = 10,94\;t/ha \end{cases} \\
-\hat{V}(\hat{Y_A})= \left( \frac{1}{r_4} + \frac{1}{r_2}\right)s^2 = \left( \frac{1}{5} + \frac{1}{6}\right)0,4510 = 0,1654\\
+\hat{V}(\hat{Y_2})= \left( \frac{1}{r_4} + \frac{1}{r_2}\right)s^2 = \left( \frac{1}{5} + \frac{1}{6}\right)0,4510 = 0,1654\\
 D_4&#39; = z_\alpha \sqrt{\frac{1}{2}\hat{V}(\hat{Y_2})}= 3,17\sqrt{\frac{1}{2}\cdot0,1654} = 0,91\; t/ha \\
 \]</span> Como <span class="math inline">\(\hat{Y_2} &gt; D_4&#39;\)</span>, rejeita-se <span class="math inline">\(H_0\)</span>, o contraste é significativo, indicando que <span class="math inline">\(\hat{m_4}\)</span> difere de <span class="math inline">\(\hat{m_2}\)</span>.</p>
 <p><span class="math display">\[
