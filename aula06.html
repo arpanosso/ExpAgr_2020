@@ -584,12 +584,12 @@ summary {
 <div id="obtenção-da-análise-de-variância-com-desdobramento-dos-graus-de-liberdade-de-tratamentos" class="section level2">
 <h2>6.2 OBTENÇÃO DA ANÁLISE DE VARIÂNCIA COM DESDOBRAMENTO DOS GRAUS DE LIBERDADE DE TRATAMENTOS</h2>
 <p>Vamos considerar os dados do trabalho “Ação de microrganismos do solo sobre o desenvolvimento de mudas de <em>Eucalyptus grandis</em> Hill Ex Maiden em tubetes” (Korari, 1990), realizado no delineamento inteiramente casualizado, com 5 tratametnos e 5 repetições. Os tratamentos utilizados foram:</p>
-<p>ST - Solo rizosférico de <em>Paspalum notatum</em> (grama batatis)</p>
+<p>ST - Solo rizosférico de <em>Paspalum notatum</em> (grama batatais)</p>
 <p>AC - Cultura de <em>Azotobacter chroococcum</em></p>
 <p>AP - Cultura de <em>Azotobacter paspali</em></p>
 <p>PM - Cultura de <em>Azotobacter paspali</em> morta</p>
 <p>T - Testemunha</p>
-<p>Os resultados obtido para a ltura média das mudas de <em>Eucalyptus grandis</em> (cm), 105 dias após a inoculação foram os seguintes.</p>
+<p>Os resultados obtido para a altura média das mudas de <em>Eucalyptus grandis</em> (cm), 105 dias após a inoculação foram os seguintes.</p>
 <p><a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/eucalyptus.txt">eucalyptus</a>.</p>
 <pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.0.2</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -858,7 +858,7 @@ Total
 <p>2 - ST vs. (AC+AP)…………………1 GL</p>
 <p>3 - AC vs. AP………………………..1 GL</p>
 <p>4 - PM vs. T………………………….1 GL</p>
-<p>Sendo a técnica do desdobramento de graus de liberdade de tratamentos, baseada em contraste ortogonais, devemos estabelecer os contraste de totais de tratamentos correspondentes à cada componente do desdobramento:</p>
+<p>Sendo a técnica do desdobramento de graus de liberdade de tratamentos, baseada em contrastes ortogonais, devemos estabelecer os contrastes de totais de tratamentos correspondentes à cada componente do desdobramento:</p>
 <p><span class="math display">\[
 Y_1 = 2T_1+2T_2+2T_3-3T_4-3T5\\
 Y_2 = 2T_1-T_2-T_3+0T_4+0T5\\
@@ -871,7 +871,7 @@ Y_4 = 0T_1+0T_2+0T_3+T_4-T5
 <h3>6.2.1. MÉTODO DOS CONTRASTES DE TOTAIS DE TRATAMENTOS</h3>
 <p>Para aplicação deste método, devemos, inicialmente, estabelecer os contrastes correspondentes a cada um dos componentes do desdobramento, tomando-se o cuidado de trabalhar com contrastes ortogonais entre si. Esses contrastes diferem dos que utilizamos normalmente, por serem funções lineares de totais de tratamentos e não de médias de tratamentos.</p>
 <p>Vejamos então, como procedemos para calcular a soma de quadrados correspondente a um determinado componente do desdobramento, conhecendo-se o seu contraste.</p>
-<p>Se tivermos um contraste de totais de tratamento, da froma genérica:</p>
+<p>Se tivermos um contraste de totais de tratamento, da forma genérica:</p>
 <p><span class="math display">\[
 Y=c_1T_1+c_2T_2...c_IT_I
 \]</span></p>
