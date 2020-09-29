@@ -1298,6 +1298,870 @@ dbc(trat,bloco,y,mcomp = &quot;tukey&quot;)</code></pre>
 ##   c   OPACO2      3120.2 
 ## ------------------------------------------------------------------------</code></pre>
 </div>
+<div id="delineamento-em-blocos-csualizados-com-uma-parcela-perdida" class="section level2">
+<h2>7.6. DELINEAMENTO EM BLOCOS CSUALIZADOS COM UMA PARCELA PERDIDA</h2>
+<div id="introdução" class="section level3">
+<h3>7.6.1. INTRODUÇÃO</h3>
+<p>O Delineamento em blocos casualizados é balanceado de tal forma que todos os blocos possuem todos os tratamentos. Assim, se ocorrer uma perda de parcela, há uma quebra neste balanceamento, pois se, por exemplo, perdermos a parcela <span class="math inline">\(x_{ij}\)</span> o tratamento <span class="math inline">\(i\)</span> não conterá o efeito do bloco <span class="math inline">\(j\)</span>. Essa quebra de balaceamento leva a sérias complicações no método de análise de variância.</p>
+<p>Um método de facilita a análise consiste em obter uma estimativa da parcela perdida. Esta estimativa não representa o valor que seria obtido, pois ningém pode saber qua seria este valor, mas é um artifício de cálculo bastante simple que conduz ao mesmo resultado que se chegaria, por processos mais complexos, considerando apenas os dados realmente obtidos (blocos incompletos).</p>
+</div>
+<div id="estimativa-da-parcela-perdida" class="section level3">
+<h3>7.6.2. ESTIMATIVA DA PARCELA PERDIDA</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">Blocos</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Tratamentos</strong></td>
+<td align="center"><strong>1</strong></td>
+<td align="center"><strong>2</strong></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(j\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(J\)</span></td>
+<td align="right"><strong>Total</strong></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="center"><span class="math inline">\(x_{11}\)</span></td>
+<td align="center"><span class="math inline">\(x_{12}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{1j}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{1J}\)</span></td>
+<td align="right"><span class="math inline">\(T_1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="center"><span class="math inline">\(x_{21}\)</span></td>
+<td align="center"><span class="math inline">\(x_{22}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{2j}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{2J}\)</span></td>
+<td align="right"><span class="math inline">\(T_2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">…</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(i\)</span></td>
+<td align="center"><span class="math inline">\(x_{i1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{i2}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{ij} = NA\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{iJ}\)</span></td>
+<td align="right"><span class="math inline">\(T+x_{ij}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">…</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center">…</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(I\)</span></td>
+<td align="center"><span class="math inline">\(x_{I1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{I2}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{Ij}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(x_{IJ}\)</span></td>
+<td align="right"><span class="math inline">\(T_I\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total</strong></td>
+<td align="center"><span class="math inline">\(B_1\)</span></td>
+<td align="center"><span class="math inline">\(B_2\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(B+x_{ij}\)</span></td>
+<td align="center">…</td>
+<td align="center"><span class="math inline">\(B_J\)</span></td>
+<td align="right"><span class="math inline">\(G&#39;+x_{ij}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>NA</strong> = é a parcela perdida</li>
+</ul>
+<p>De acordo com o modelo matemático, temos:</p>
+<p><span class="math display">\[
+x_{ij}= \mu+\tau_{i}+\beta_{j}+\epsilon_{ij}
+\]</span></p>
+<p>A estimativa da parcela perdida é obtida tornando mínimo o efeito dos fatores não contralados ou acaso na parcela.</p>
+<p>Então, utilizando o método dos quadrados mínimos, obtém-se:</p>
+<p><span class="math display">\[
+x_{ij} = \frac{IT+JB-G&#39;}{(I-1)(J-1)}
+\]</span></p>
+<p>onde</p>
+<p><span class="math inline">\(I\)</span> é o número de tratamentos do experimento.</p>
+<p><span class="math inline">\(J\)</span> é o número de blocos do experimento.</p>
+<p><span class="math inline">\(T\)</span> é a soma das parcelas existentes no tratamento que perdeu a parcela.</p>
+<p><span class="math inline">\(B\)</span> é a soma das parcelas existentes no bloco que perdeu a parcela.</p>
+<p><span class="math inline">\(G&#39;\)</span> é a soma das parcelas existentes no experimento.</p>
+</div>
+<div id="obtenção-da-análise-de-variância-1" class="section level3">
+<h3>7.6.3. OBTENÇÃO DA ANÁLISE DE VARIÂNCIA</h3>
+<p>Uma vez obtida a estimativa da parcela perdida, substituímos o seu valor no quadro de dados, e calculamos as somas de quadrados da maneira usual. Então, com o valor estimado da parcela perdidada obtemos:</p>
+<p><span class="math inline">\(T_{i}=T+x_{ij}\)</span></p>
+<p><span class="math inline">\(B_{j}=B+x_{ij}\)</span></p>
+<p><span class="math inline">\(G=G&#39;+x_{ij}\)</span></p>
+<p><span class="math inline">\(C=\frac{G^2}{IJ}\)</span></p>
+<p><span class="math inline">\(SQ_{Total}=\sum_{i=1}^I\sum_{j=1}^Jx_{ij}^2-C\)</span></p>
+<p><span class="math inline">\(SQ_{Trat}=\frac{1}{J}\sum_{i=1}^IT_{i}^2-C\)</span></p>
+<p><span class="math inline">\(SQ_{Blocos}=\frac{1}{I}\sum_{j=1}^JB_{j}^2-C\)</span></p>
+<p><span class="math inline">\(SQ_{Res}=SQ_{Total}-SQ_{Trat}-SQ_{Blocos}\)</span></p>
+<p>O método dos mínimos quadrados torna mínima a soma de quadrados do resíduo, a qual fica corretamente estimada, porém, causa uma superestimação na soma de quadrados de tratamentos e de blocos.</p>
+<p>Então, a soma de quadrados de tratamentos deve ser ajustada. Para isso, devemos calcular o fator de correção, representado por <span class="math inline">\(U\)</span>, e dado por:</p>
+<p><span class="math display">\[
+U=F.C. =\frac{I-1}{I}\left(x_{ij}-\frac{B}{I-1}\right)^2
+\]</span></p>
+<p>Onde:</p>
+<p><span class="math inline">\(x_{ij}\)</span> é a estimativa da parcela perdida.</p>
+<p><span class="math inline">\(I\)</span> é o número de tratamentos do experimento.</p>
+<p><span class="math inline">\(B\)</span> é a soma dos parcelas existentes no bloco que perdeu a parcela.</p>
+<p>E a soma de quadrados de tratamentos ajustada será:</p>
+<p><span class="math inline">\(SQ_{Trat(Aj.)}=SQ_{Trat}-U\)</span></p>
+<p>Embora, na pratica não seja necessário, caso haja interesse, pode-se também, fazer a correção da soma de quadrado de blocos por meio da expressão:</p>
+<p><span class="math inline">\(SQ_{Blocos(Aj.)}=SQ_{Blocos}-U_B\)</span></p>
+<p>Onde:</p>
+<p><span class="math display">\[
+U_B=\frac{J-1}{J}\left(x_{ij}-\frac{T}{J-1}\right)^2
+\]</span></p>
+<p>A seguir montamos o quadro de análise de variância, <strong>lembrando que há uma perda de um grau de liberdade</strong> para o total e para o resíduo, devido à estimativa da parcela perdida.</p>
+<p>Então, o quadro de análise de variância será:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Causas de Variação</th>
+<th>GL</th>
+<th>SQ</th>
+<th>QM</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamentos (Ajust.)</td>
+<td><span class="math inline">\(I-1\)</span></td>
+<td><span class="math inline">\(SQ_{Trat}-U\)</span></td>
+<td><span class="math inline">\(SQ_{Trat(Aj.)}\)</span>/(I-1)</td>
+<td><span class="math inline">\(QM_{Trat}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="even">
+<td>Blocos</td>
+<td><span class="math inline">\(J-1\)</span></td>
+<td><span class="math inline">\(SQ_{Blocos}-U_B\)</span></td>
+<td><span class="math inline">\(SQ_{Blocos}\)</span>/(J-1)</td>
+<td><span class="math inline">\(QM_{Blocos}\)</span>/<span class="math inline">\(QM_{Res}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Resíduo</td>
+<td><span class="math inline">\((I-1)(J-1)-1\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span></td>
+<td><span class="math inline">\(SQ_{Res}\)</span>/[(I-1)(J-1)-1]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong><span class="math inline">\(IJ-2\)</span></strong></td>
+<td>–</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Os valores de F calculados são comparados com os valores de F tabelados para se verificar se o teste é significativo ou não.</p>
+</div>
+<div id="médias-de-tratamentos" class="section level3">
+<h3>7.6.4. MÉDIAS DE TRATAMENTOS</h3>
+<p>As médias de tratamentos são obtidas de maneiral usual, ou seja:</p>
+<p><span class="math inline">\(\hat{m}_k=\frac{T_k}{J}\)</span> para os tratamentos que não perderam parcela.</p>
+<p><span class="math inline">\(\hat{m}_i=\frac{T+x_{ij}}{J}\)</span> para o tratamento que perdeu a parcela.</p>
+</div>
+<div id="erros-padrões-das-médias-de-tratamentos" class="section level3">
+<h3>7.6.5. ERROS PADRÕES DAS MÉDIAS DE TRATAMENTOS</h3>
+<p><strong>a) Para as médias dos tratamentos que não perderam parcela.</strong></p>
+<p><span class="math display">\[
+s(\hat{m})=\frac{s}{\sqrt{J}}=\sqrt{\frac{QM_{Res}}{J}}
+\]</span></p>
+<p><strong>b) Para a média do tratamento que perdeu parcela.</strong></p>
+<p><span class="math display">\[
+s(\hat{m})= \sqrt{\hat{V}(\hat{m})},\; onde \\
+\hat{V}(\hat{m}) = \left[ \frac{1}{J}+\frac{I}{J(J-1)(I-1)} \right]s^2
+\]</span></p>
+</div>
+<div id="comparação-das-médias-para-o-teste-de-tukey" class="section level3">
+<h3>7.6.6. COMPARAÇÃO DAS MÉDIAS PARA O TESTE DE TUKEY</h3>
+<p>Temos dois casos a considerar;</p>
+<p><strong>a) Comparação entre médias dos tratamentos sem parcela perdida:</strong></p>
+<p><span class="math display">\[
+\hat{Y} = \hat{m}_k-\hat{m}_{k&#39;} \\
+\hat{V}\hat{Y}=\frac{2}{J}s^2
+\]</span></p>
+<p>Então, para a aplicação do teste de Tukey, temos:</p>
+<p><span class="math display">\[
+\Delta = dms=q\sqrt{\frac{1}{2}\cdot\frac{2}{J}s^2}=q\frac{s}{\sqrt{J}}
+\]</span></p>
+<p><strong>b) Comparações entre as médias dos tratamentos sem parcela perdida <span class="math inline">\((k)\)</span> com média do tratamento que perdeu parcela <span class="math inline">\((i)\)</span>:</strong></p>
+<p><span class="math display">\[
+\hat{Y} = \hat{m}_k-\hat{m}_{i} \\
+\hat{V}(\hat{Y})=\left[\frac{2}{J}+\frac{I}{J(I-1)(J-1)} \right]s^2
+\]</span></p>
+<p>então, para a aplicação do teste de Tukey, temos:</p>
+<p><span class="math display">\[
+\Delta = dms = q\sqrt{\frac{1}{2}\hat{V}(\hat{Y})}
+\]</span></p>
+</div>
+<div id="exemplo-de-aplicação-1" class="section level3">
+<h3>7.6.7. EXEMPLO DE APLICAÇÃO</h3>
+<p>Para exemplificar a análise de variância de um experimento em blocos casualizados com parcela perdida, vamos analisar os dados obtidos pelo trabalho intitulado “Estudos dos Efeitos do Promalin sobre frutos de macieiras (<em>Malus</em> spp) cultivares Brasil e Rainha”, realizado por MESTRINER (1980). Foram utiizados 5 tratamentos:</p>
+<p><span class="math inline">\(T_1\)</span> - 12.5 ppm de promalin em plena floração</p>
+<p><span class="math inline">\(T_2\)</span> - 25.0 ppm de promalin em plena floração</p>
+<p><span class="math inline">\(T_3\)</span> - 50.0 ppm de promalin em plena floração</p>
+<p><span class="math inline">\(T_4\)</span> - 12.5 ppm de promalin em plena floração + 12.5 ppm de promalin no início da frutificação</p>
+<p><span class="math inline">\(T_5\)</span> - Testemunha</p>
+<p>Os resultados obtidos para peso médio de frutos da macieira, em gramas, foram os seguintes, e podem ser encontrados online em <a href="https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/macieira.txt">macieira</a>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tratamentos
+</th>
+<th style="text-align:right;">
+Bloco1
+</th>
+<th style="text-align:right;">
+Bloco2
+</th>
+<th style="text-align:right;">
+Bloco3
+</th>
+<th style="text-align:right;">
+Bloco4
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:right;">
+142.36
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+144.78
+</td>
+<td style="text-align:right;">
+145.19
+</td>
+<td style="text-align:right;">
+138.88
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+571.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T2
+</td>
+<td style="text-align:right;">
+139.28
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+137.77
+</td>
+<td style="text-align:right;">
+144.44
+</td>
+<td style="text-align:right;">
+130.61
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+552.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T3
+</td>
+<td style="text-align:right;">
+140.73
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+134.06
+</td>
+<td style="text-align:right;">
+136.07
+</td>
+<td style="text-align:right;">
+144.11
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+554.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T4
+</td>
+<td style="text-align:right;">
+150.88
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+135.83
+</td>
+<td style="text-align:right;">
+136.97
+</td>
+<td style="text-align:right;">
+136.36
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+560.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: red !important;">
+T5
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+153.49
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;font-weight: bold;color: white !important;background-color: red !important;">
+NA
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+151.75
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;">
+150.22
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+455.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgray !important;">
+Total
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+726.74
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: red !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+552.44
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+714.42
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+700.18
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+2693.78
+</td>
+</tr>
+</tbody>
+</table>
+<p>Em vermelho descamos o tratamento e o bloco que perderam a parcela.</p>
+<p>As hipóteses que desejamos testar são: <span class="math display">\[
+\begin{cases} H_0:\;As\;doses\;de\;Promalin\;não\;influenciam\;no\;peso\;médio\;de\;frutos\;de\;macieira\\
+H_1: \;As\;doses\;de\;Promalin\;possuem\;efeitos \;diferentes\;sobre\;o\;peso\;médio\;de\;frutos\;de\;macieira
+\end{cases}
+\]</span></p>
+<p><strong>a) estimativa da parcela perdida</strong></p>
+<p><span class="math display">\[
+x_{ij} = \frac{IT+JB-G&#39;}{(I-1)(J-1)}
+x_{52} = \frac{5\cdot455,46+4\cdot552,44-2693,78}{(5-1)(4-1)} = 149,44\;g
+\]</span></p>
+<p>A seguir, colocamos esse valor no quado de dados, e recalculamos os totais:</p>
+<p><span class="math inline">\(T_{5}=T+x_{52}=455,46+149,44=604,90\)</span></p>
+<p><span class="math inline">\(B_{2}=B+x_{52}=552,44+149,44=701,88\)</span></p>
+<p><span class="math inline">\(G=G&#39;+x_{52}=2693,78+149,44=2843,22\)</span></p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tratamentos
+</th>
+<th style="text-align:right;">
+Bloco1
+</th>
+<th style="text-align:right;">
+Bloco2
+</th>
+<th style="text-align:right;">
+Bloco3
+</th>
+<th style="text-align:right;">
+Bloco4
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:right;">
+142.36
+</td>
+<td style="text-align:right;">
+144.78
+</td>
+<td style="text-align:right;">
+145.19
+</td>
+<td style="text-align:right;">
+138.88
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+571.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T2
+</td>
+<td style="text-align:right;">
+139.28
+</td>
+<td style="text-align:right;">
+137.77
+</td>
+<td style="text-align:right;">
+144.44
+</td>
+<td style="text-align:right;">
+130.61
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+552.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T3
+</td>
+<td style="text-align:right;">
+140.73
+</td>
+<td style="text-align:right;">
+134.06
+</td>
+<td style="text-align:right;">
+136.07
+</td>
+<td style="text-align:right;">
+144.11
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+554.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T4
+</td>
+<td style="text-align:right;">
+150.88
+</td>
+<td style="text-align:right;">
+135.83
+</td>
+<td style="text-align:right;">
+136.97
+</td>
+<td style="text-align:right;">
+136.36
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+560.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T5
+</td>
+<td style="text-align:right;">
+153.49
+</td>
+<td style="text-align:right;">
+149.44
+</td>
+<td style="text-align:right;">
+151.75
+</td>
+<td style="text-align:right;">
+150.22
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+604.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgray !important;">
+Total
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+726.74
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+701.88
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+714.42
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;">
+700.18
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgray !important;font-weight: bold;color: black !important;background-color: lightgray !important;">
+2843.22
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>b) Cálculo das somas de Quadrados</strong></p>
+<p><strong>b.1) Soma de Quadrados Total:</strong> $$ SQ_{Total}=<em>{i=1}^I</em>{j=1}<sup>Jx_{ij}</sup>2-C \</p>
+<p>SQ_{Total}=[142.36<sup>2++149.44</sup>2++150.22^2]-=816,5390 $$</p>
+<p><strong>b.2) Soma de Quadrados de Tratamentos:</strong> <span class="math display">\[
+SQ_{Trat}=\frac{1}{J}\sum_{i=1}^IT_{i}^2-C \\
+SQ_{Trat}=\frac{1}{4}[571,21^2+\cdots+604,9^2]-\frac{2843,22^2}{5\cdot4}=463,9483
+\]</span></p>
+<p><strong>b.3) Soma de Quadrados de Blocos:</strong> <span class="math display">\[
+SQ_{Blocos}=\frac{1}{I}\sum_{j=1}^JB_{j}^2-C \\
+SQ_{Blocos}=\frac{1}{5}[726,74^2+701,88^2+714,42^2+700,18^2]-\frac{2843,22^2}{5\cdot4}=91,9078
+\]</span></p>
+<p><strong>b.4) Soma de Quadrados de Resíduos:</strong></p>
+<p><span class="math display">\[
+SQ_{Res}=SQ_{total}-SQ_{Trat}-SQ_{Blocos} \\
+SQ_{Res}=816,5390-463,9483-91,9078=260,6829
+\]</span></p>
+<p><strong>c) Correção da soma de quadrados de tratamentos</strong>:</p>
+<p><span class="math display">\[
+U=\frac{I-1}{I}\left(x_{ij}-\frac{B}{I-1}\right)^2 \\
+U=\frac{5-1}{I}\left(149,44-\frac{552,44}{5-1}\right)^2=102,6951
+\]</span></p>
+<p>Portanto, temos:</p>
+<p><span class="math inline">\(SQ_{Trat(Aj.)}=SQ_{Trat}-U=463,9483-102,6951=361,2532\)</span></p>
+<p>Então podemos montar o seguinte quadro de análise de variância:</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Causas de Variação
+</th>
+<th style="text-align:left;">
+GL
+</th>
+<th style="text-align:left;">
+SQ
+</th>
+<th style="text-align:left;">
+QM
+</th>
+<th style="text-align:left;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tratamento
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+361,2532
+</td>
+<td style="text-align:left;">
+90,3133
+</td>
+<td style="text-align:left;">
+3,81*
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Blocos
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+91,9078
+</td>
+<td style="text-align:left;">
+30,6359
+</td>
+<td style="text-align:left;">
+1,29ns
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resíduo
+</td>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+260,6829
+</td>
+<td style="text-align:left;">
+23,6984
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valores de F da tabela para tratamentos (4 x 11 GL):<span class="math inline">\(\begin{cases} 5\%=3,36 \\ 1\%=5,67 \end{cases}\)</span></p>
+<p>Valores de F da tabela para blocos (3 x 11 GL):<span class="math inline">\(\begin{cases} 5\%=3,81 \\ 1\%=6,22 \end{cases}\)</span></p>
+<p><strong>Conclusões</strong>: O teste F foi significativo ao nível de <span class="math inline">\(5\%\)</span> de probabilidade, indicando que devemos rejeitar <span class="math inline">\(H_0\)</span> e concluir que as doses de Promalin possuem efeitos diferentes sobre o peso médio dos frutos de mação, com um grau de confiança superior a <span class="math inline">\(95\%\)</span> de probabilidade.</p>
+<p>Para tirar conclusões mais específicas sobre o comportamento dos inseticidas, podemos aplicar um teste de comparação de médias.</p>
+<p><strong>a) Cálculo das médias de tratamentos</strong>:</p>
+<p><span class="math display">\[
+\hat{m_1} = \frac{T_1}{J}=\frac{571,21}{4}=142,80\;g\\
+\hat{m_2} = \frac{T_2}{J}=\frac{552,10}{4}=138,03\;g\\
+\hat{m_3} = \frac{T_3}{J}=\frac{554,97}{4}=138,74\;g\\
+\hat{m_4} = \frac{T_4}{J}=\frac{560,04}{4}=140,01\;g\\
+\hat{m_5} = \frac{T_5}{J}=\frac{604,90}{4}=151,23\;g\\
+\]</span></p>
+<p><strong>b) Cálculo dos erros padrões das médias de tratamentos</strong>:</p>
+<p>Para as médias dos tratamentos que não perderam parcela, temos:</p>
+<p><span class="math inline">\(s(\hat{m})=\sqrt{\frac{QM_{Res}}{J}}=\sqrt{\frac{23,6984}{4}}=2,43\;g,\;k=(1,2,3,4)\)</span></p>
+<p>Para média do tratamento que perdeu a parcela, o erro padrão será:</p>
+<p><span class="math inline">\(s(\hat{m}_5)=\sqrt{\frac{1}{J}+\frac{I}{J(J-1)(I-1)}s^2}=\sqrt{\frac{1}{4}+\frac{5}{4(4-1)(5-1)}23,6984}=2,90\;g\)</span></p>
+<p><strong>c) Aplicação do teste de Tukey para comparação das médias de tratamentos</strong>:</p>
+<p><strong>c.1) Cálculo do valor de <span class="math inline">\(\Delta\)</span> para comparações entre médias de tratamentos que não perderam parcela</strong>:</p>
+<p><span class="math inline">\(q_{(5\times11GLRes)} = 4,57, s=\sqrt{QM_{Res}}=4,8681\;\;\;\;\;\;\;\ r=4\)</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+\delta = dms = q\sqrt{\frac{QM_{Res}}{r}}=4,57\sqrt{\frac{23,6984}{4}}=11,12\;g
+\]</span> <strong>c.2) Cálculo do <span class="math inline">\(\Delta\)</span> para comparações entre médias dos tratamentos que não perderam parcela e a média do tratamento que perdeu a parcela <span class="math inline">\(\hat{m}_5\)</span></strong>:</p>
+<p><span class="math display">\[
+\hat{Y} = \hat{m}_k-\hat{m}_{i} \\
+\hat{V}(\hat{Y})=\left[\frac{2}{J}+\frac{I}{J(I-1)(J-1)} \right]s^2
+\]</span></p>
+<p>Então, temos:</p>
+<p><span class="math display">\[
+\Delta = dms =q\sqrt{\frac{1}{2}\hat{V}(\hat{Y})} \\
+\Delta = dms =4,57\sqrt{\frac{1}{2}\left[\frac{2}{4}+\frac{5}{4(5-1)(4-1)} \right]23,6984^2}=12,23\;g
+\]</span></p>
+<p><strong>c.3) Cálculo das estimativas dos contrastes entre duas médias</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(\hat{m_1}\)</span></th>
+<th><span class="math inline">\(\hat{m_4}\)</span></th>
+<th><span class="math inline">\(\hat{m_3}\)</span></th>
+<th><span class="math inline">\(\hat{m_2}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\hat{m_5}\)</span></td>
+<td>8,43</td>
+<td>11,22</td>
+<td>12,49*</td>
+<td>13,2*</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{m_1}\)</span></td>
+<td>-</td>
+<td>2,79</td>
+<td>4,06</td>
+<td>4,77</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\hat{m_4}\)</span></td>
+<td>-</td>
+<td>-</td>
+<td>1,27</td>
+<td>1,98</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hat{m_3}\)</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>0,71</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão</strong>: Médias seguidas de pelo menos uma letra em comum não diferem entre si, pelo teste de Tukey, ao nível de 5% de probabilidade.</p>
+<p><span class="math display">\[
+\hat{m_5} = 151,23\;g\;\;\;\;-a\\
+\hat{m_1} = 142,80\;g\;\;\;\;-ab\\
+\hat{m_4} = 140,01\;g\;\;\;\;-ab\\
+\hat{m_3} = 138,74\;g\;\;\;\;-b\\
+\hat{m_2} = 138,03\;g\;\;\;\;-b
+\]</span></p>
+<p>Portanto, a melhor dose 12,5 ppm de promalin aplicada em plena floração (Traramento 1) ou em plena floração e no início da frutificação (Tratamento 4) não afeta o peso médio dos frutos, pois não difere da testemunha.</p>
+<p><strong>d) Cálculo do coeficiente de variação do experimento</strong>:</p>
+<p><span class="math display">\[
+\hat{m}=\frac{G}{IJ}=\frac{2843,22}{5\cdot4}=142,16\;g\\
+s=\sqrt{QM_{Res}}=\sqrt{23,6984}=4,8681\;g\\
+CV=\frac{100\cdot s}{\hat{m}}=\frac{100\cdot4,8681}{142,16}=3,42\%.
+\]</span></p>
+<p>Aplicação no R.</p>
+<p><img src="data:image/png;base64,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" /></p>
+<pre class="r"><code>caminho&lt;-&quot;https://raw.githubusercontent.com/arpanosso/ExpAgr_2020/master/dados/macieira.txt&quot;
+dados&lt;-read.table(caminho,h=TRUE)
+
+# Extraindo os fatores e a variável resposta
+trat&lt;-as.factor(dados$trat)
+bloco&lt;-as.factor(dados$bloco)
+y&lt;-dados$y
+B&lt;-tapply(y,bloco,sum,na.rm=TRUE)[is.na(B&lt;-tapply(y,bloco,sum))]
+
+# Definindo o modelo para análise preliminar com a parcela perdida
+modelo&lt;-aov(y~trat+bloco)
+anova(modelo)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## trat       4 412.42 103.106  4.3507 0.02369 *
+## bloco      3  87.66  29.220  1.2330 0.34419  
+## Residuals 11 260.68  23.698                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># Estimando a parcela perdida
+xij&lt;-predict(modelo,newdata = dados$bloco&lt;-as.factor(bloco))[is.na(y)]
+
+# valor estimado
+xij</code></pre>
+<pre><code>##     18 
+## 149.44</code></pre>
+<pre class="r"><code># Substituindo a parcela perdida pelo valor estimado
+y[is.na(y)]&lt;-xij
+
+# Definindo o novo modelo
+modeloC&lt;-aov(y~trat+bloco)
+anava&lt;-anova(modeloC)
+
+# Calculando o fator de correção para o ajuste das soma de quadrados dos tratamentos
+I&lt;-length(levels(trat))
+QMRes&lt;-anava$`Mean Sq`[3]
+(U&lt;-(I-1)/(I)*(xij-B/(I-1))^2)</code></pre>
+<pre><code>##       18 
+## 102.6951</code></pre>
+<pre class="r"><code>anava$Df[3]&lt;-anava$Df[3]-1
+anava$`Sum Sq`[1]&lt;-anava$`Sum Sq`[1]-U
+anava$`Mean Sq`&lt;-anava$`Sum Sq`/anava$Df
+anava$`F value`[1]&lt;-anava$`Mean Sq`[1]/anava$`Mean Sq`[3]
+anava$`Pr(&gt;F)`[1]&lt;-pf(anava$`Pr(&gt;F)`[1],anava$Df[1],anava$Df[3])
+anava$`F value`[2]&lt;-anava$`Mean Sq`[2]/anava$`Mean Sq`[3]
+anava$`Pr(&gt;F)`[2]&lt;-pf(anava$`Pr(&gt;F)`[2],anava$Df[2],anava$Df[3])
+anava</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: y
+##           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## trat       4 361.25  90.313  3.8109 0.0002554 ***
+## bloco      3  91.91  30.636  1.2927 0.1667326    
+## Residuals 11 260.68  23.698                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>## Comparações múltiplas para as médias Tukey
+require(&quot;agricolae&quot;)
+tukey &lt;- HSD.test(modelo,&quot;trat&quot;, group=TRUE,console=TRUE)</code></pre>
+<pre><code>## 
+## Study: modelo ~ &quot;trat&quot;
+## 
+## HSD Test for y 
+## 
+## Mean Square Error:  23.69846 
+## 
+## trat,  means
+## 
+##           y      std r    Min    Max
+## T1 142.8025 2.897843 4 138.88 145.19
+## T2 138.0250 5.708897 4 130.61 144.44
+## T3 138.7425 4.539760 4 134.06 144.11
+## T4 140.0100 7.261621 4 135.83 150.88
+## T5 151.8200 1.636123 3 150.22 153.49
+## 
+## Alpha: 0.05 ; DF Error: 11 
+## Critical Value of Studentized Range: 4.573596 
+## 
+## Groups according to probability of means differences and alpha level( 0.05 )
+## 
+## Treatments with the same letter are not significantly different.
+## 
+##           y groups
+## T5 151.8200      a
+## T1 142.8025     ab
+## T4 140.0100     ab
+## T3 138.7425      b
+## T2 138.0250      b</code></pre>
+<pre class="r"><code>bar.group(tukey$groups,
+          las=1,
+          ylim=c(0,max(y)*1.10),
+          xlab=&quot;Cultivares&quot;,
+          ylab=&quot;Produção (kg por ha)&quot;,
+          main=&quot;Teste de Tukey (5%)&quot;);box()</code></pre>
+<p><img src="data:image/png;base64,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" width="672" /></p>
+<pre class="r"><code># Cálculo do CV
+QMRes&lt;-anava$`Mean Sq`[3]
+cv&lt;-100*sqrt(QMRes)/mean(y)
+round(cv,2)</code></pre>
+<pre><code>## [1] 3.42</code></pre>
+</div>
+</div>
 </div>
 
 
