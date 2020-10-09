@@ -11,3 +11,5 @@
 #http://arpanosso.github.io/ExpAgr_2020/aula06.html
 
 #http://arpanosso.github.io/ExpAgr_2020/aula07.html
+
+#http://arpanosso.github.io/ExpAgr_2020/aula08.html
