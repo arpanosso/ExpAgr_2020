@@ -889,11 +889,9 @@ Total
 <div id="pelo-quadro-de-dados-do-experimento-podemos-obter-as-somas-de-quadrados-total-e-de-blocos-utilizando" class="section level3">
 <h3>Pelo quadro de dados do experimento, podemos obter as somas de quadrados Total e de Blocos, utilizando:</h3>
 <ul>
-<li><span class="math inline">\(I\)</span> (número de níveis de tratamentos principais).
-<ul>
-<li><span class="math inline">\(J\)</span> (número de Blocos ou repetições).</li>
-<li><span class="math inline">\(K\)</span> (número de níveis de tratamentos secundários).</li>
-</ul></li>
+<li><p><span class="math inline">\(I\)</span> (número de níveis de Tratamentos Principais).</p></li>
+<li><p><span class="math inline">\(J\)</span> (número de Blocos ou repetições).</p></li>
+<li><p><span class="math inline">\(K\)</span> (número de níveis de Tratamentos Secundários).</p></li>
 </ul>
 <p>Assim, temos:</p>
 <p>$$ <span class="math display">\[\begin{align}
@@ -981,10 +979,10 @@ SQ_{Blocos} &amp;= \frac{1}{IK} \sum_{j = 1}^JB_j^2-C \\
 </tr>
 <tr class="odd">
 <td align="left">Total</td>
-<td align="center"></td>
 <td align="center">44,38</td>
 <td align="center">45,5242</td>
 <td align="center">42,2576</td>
+<td align="center">132,1618</td>
 </tr>
 </tbody>
 </table>
@@ -1776,7 +1774,7 @@ s(\hat{m}_E)=\frac{s_a}{\sqrt{r_E}}=\frac{\sqrt{QM_{Res(a)}}}{\sqrt{r_E}}=\sqrt{
 <div id="b-tratamentos-secundários-variedades" class="section level3">
 <h3>b) Tratamentos secundários (Variedades)</h3>
 <p><span class="math display">\[
-s(\hat{m}_V)=\frac{s_b}{\sqrt{r_V}}=\frac{\sqrt{QM_{Res(b)}}}{\sqrt{r_V}}=\sqrt{\frac{0,087}{24}}= 0,0871\;t\;ha^{-1}
+s(\hat{m}_V)=\frac{s_b}{\sqrt{r_V}}=\frac{\sqrt{QM_{Res(b)}}}{\sqrt{r_V}}=\sqrt{\frac{0,087}{24}}= 0,0602\;t\;ha^{-1}
 \]</span></p>
 </div>
 <div id="c-tratamentos-secundários-variedades-dentro-de-tratamentos-principais-épocas" class="section level3">
@@ -1790,7 +1788,11 @@ s(\hat{m}_{V\;d.E})=\frac{s_b}{\sqrt{r_{V\;d.E}}}=\frac{\sqrt{QM_{Res(b)}}}{\sqr
 <p>Note, apesar de serem as mesmas médias, do item anterior, a comparação é diferente, então no erro padrão delas, devemos utilizar o <span class="math inline">\(QM_{Resíduo\;Médio}\)</span>:</p>
 <p><span class="math display">\[
 s(\hat{m}_{E\;d.V})=\frac{s_{médio}}{\sqrt{r_{E\;d.V}}}=\frac{\sqrt{QM_{Res.Médio}}}{\sqrt{r_{E\;d.V}}}=\sqrt{\frac{0,1158}{3}}= 0,1965\;t\;ha^{-1}
-\]</span> ## Teste de Tukey para comparar médias de tratamentos principais (épocas) dentro de tratamentos secundérios (variedades)</p>
+\]</span></p>
+</div>
+</div>
+<div id="teste-de-tukey-para-comparar-médias-de-tratamentos-principais-épocas-dentro-de-tratamentos-secundérios-variedades" class="section level2">
+<h2>Teste de Tukey para comparar médias de tratamentos principais (épocas) dentro de tratamentos secundérios (variedades)</h2>
 <p>O valor da diferença mínima significativa pelo teste de Tukey (<span class="math inline">\(5\%\)</span>) será:</p>
 <p><span class="math display">\[
 dms=q\cdot\sqrt{\frac{QM_{Res.Médio}}{r_{E\;d.V}}},\\
@@ -1851,7 +1853,6 @@ dms=4,64\cdot0,1965=0,9116\;t\;ha^{-1}
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div id="cálculo-dos-coeficientes-de-variação-do-experimento" class="section level2">
 <h2>Cálculo dos coeficientes de variação do experimento</h2>
